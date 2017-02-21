@@ -1,0 +1,18 @@
+.list-group-item:hover{
+	color: #3a87ad;
+    background-color: #d9edf7;
+	border: 1px solid #9CD;
+	border-bottom: 2px solid #9CD;
+}
+.list-group-item:hover> .btn{    
+	color: #ffffff;
+    background-color: #029acf;
+    border-color: #029acf
+}
+.btn-special{
+	padding-top:15px !important;
+	padding-bottom:15px !important;
+}
+.list-group-item>b{
+	font-weight: normal !important;	
+}

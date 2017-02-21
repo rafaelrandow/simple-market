@@ -1,0 +1,9 @@
+[{"id":"1","nome":"Arroz","comprado":"nao"},
+ {"id":"2","nome":"Batata","comprado":"nao"},
+ {"id":"3","nome":"Café","comprado":"sim"},
+ {"id":"4","nome":"Detergente","comprado":"nao"},
+ {"id":"5","nome":"Espinafre","comprado":"nao"},
+ {"id":"6","nome":"Farinha","comprado":"nao"},
+ {"id":"7","nome":"Goiaba","comprado":"nao"},
+ {"id":"8","nome":"Hamburguer","comprado":"nao"},
+ {"id":"9","nome":"Inseticida","comprado":"nao"}]
