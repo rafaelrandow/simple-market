@@ -6,12 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" type="image/x-icon" href="Fasticon-Shop-Cart-Shop-cart.ico">
-<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+<link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="css/bootstrap.spl.css" media="screen">
 <link rel="stylesheet" href="css/custom.css" media="screen">
 
 <script src="js/angular.min.js"></script>
 <script src="js/jquery.min.js" />
 <script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('.dropdown-toggle').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+   $('.navbar-toggle').on("click", function(e){
+    $(this).next('div').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
 
 <!--<script src="js/angular-route.js"></script> -->
 <!-- Onde ficarao as nossas rotas -->
@@ -33,20 +48,16 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="#" class="navbar-brand">Angular JS</a>
+				<a href="#" class="navbar-brand">Simple Market</a>
 				<button class="navbar-toggle" type="button" data-toggle="collapse"
 					data-target="#navbar-main">
-					<span class="icon-bar" /> <span class="icon-bar" /> <span
-						class="icon-bar" />
 				</button>
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
-
-
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="actions">SimpleMarket <span
-							class="caret" />
+						data-toggle="dropdown" href="#" id="actions">Menu <span
+							class="caret" /></span>
 					</a>
 						<ul class="dropdown-menu" aria-labelledby="actions">
 							<li><a href="#">Importar Lista</a></li>
@@ -54,11 +65,7 @@
 							<li><a href="#">Exportar Lista</a></li>
 						</ul></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="http://builtwithbootstrap.com/" target="_blank">Built
-							With Bootstrap</a></li>
-				</ul>
-
+				
 			</div>
 		</div>
 	</div>
@@ -69,7 +76,7 @@
 		<div class="page-header row" id="banner">
 			<div class="col-md-12">
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-left">
-					<h2>SimpleMarket</h2>
+					<h2>Simple Market</h2>
 					<p class="lead">Lista de Compras</p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6">
@@ -112,10 +119,10 @@
 			<form class="form-inline">
 				<fieldset>
 					<legend>Produto</legend>
-					<label for="inputNome" class="col-lg-2 control-label">Nome</label>
-					<div class="col-md-7 col-sm-10" style="margin-bottom:25px">
-						<div class="input-group col-md-12">
-						  <input type="text" class="form-control" name="inputNome"
+					<label for="inputNome" class="col-md-2 control-label">Nome</label>
+					<div class="col-md-6 col-sm-10" >
+						<div class="input-group col-md-12" style="margin-bottom:25px">
+						  <input type="txt" class="form-control" name="inputNome"
 							 ng-model="inputNome" placeholder="Nome">
 						  <div class="input-group-btn">
 						    	<button type="button"
@@ -126,11 +133,13 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-12">											
-						<button type="submit" class="btn-special btn btn-md btn-primary"
-							ng-click="removerProduto(inputNome);">&times; Remove item
+					<div class="col-md-4 col-sm-12">											
+						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
+							ng-click="removerProduto(inputNome);">
+							&times; Remove item
 						</button>
-						<button type="submit" class="btn-special btn btn-md btn-info pull-right"
+						&nbsp;
+						<button type="submit" class="btn-special btn btn-md btn-info"
 							ng-click="adicionarProduto(inputNome);">
 							<span class="glyphicon glyphicon-plus" /> </span> Adiciona item</button>
 
@@ -145,8 +154,8 @@
 		<footer>
 			<div class="col-lg-6">
 				<p>
-					App SimpleMarket © <a href="http://randgross.awardspace.info/" rel="nofollow">Rafael
-						Randow</a> - 2017.
+					App SimpleMarket © <a href="https://github.com/rafaelrandow/simple-market" rel="nofollow">GitHub</a> - 2017.
+					</p>
 			</div>
 		</footer>
 	</div>

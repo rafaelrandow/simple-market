@@ -86,7 +86,7 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 		var prod = $('.list-group-item>b').length;
 		$scope.listaComprados = [];
 		$scope.listaNaoComprados = [prod];
-		alert("Finalizando Lista com "+ (prod - 1) +" produtos");
+		alert("Exportando Lista com "+ (prod - 1) +" produtos");
 
 		$('.list-group-item>b').each(function(){
 			//status = 'nao';
