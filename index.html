@@ -24,16 +24,13 @@ $(document).ready(function(){
     $('#navbar-main').toggle();
     e.stopPropagation();
     e.preventDefault();
-  });
-  
+  });  
    $('.select').on("click", function(e){
     $('#listar').hide();
 	$('#importar').show();
     e.stopPropagation();
     e.preventDefault();
-  });
-  
-  
+  });  
 });
 </script>
 
@@ -83,9 +80,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
-	<p>
-		<br />
-	</p>
+	<p><br /></p>
 	<div class="container" ng-controller="ProdutosCtrl">
 		<div class="page-header row" id="banner">
 			<div class="">
@@ -116,7 +111,6 @@ $(document).ready(function(){
 							<button ng-show="value == 'sim'" type="submit"
 								class="pull-right btn btn-sm btn-success btn-special"
 								ng-click="devolverProduto(key);">Comprado</button>
-
 							<br /> <br />
 						</div>
 		</form>
@@ -150,8 +144,7 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"							
 							ng-click="removerProduto(inputNome);">
-							&times; Remove item
-							
+							&times; Remove item							
 						</button>
 						&nbsp;
 						<button type="submit" class="btn-special btn btn-md btn-info"
@@ -160,7 +153,6 @@ $(document).ready(function(){
 						</button>
 						<br /><br />
 						</div>
-
 				</fieldset>
 			</form>
 		</div>
@@ -177,18 +169,24 @@ $(document).ready(function(){
 						  <input type="file" class="form-control" id="arquivoInput"
 						  placeholder="Lista">
 						  <div class="input-group-btn">
-						    <a  name="importarAncora"> </a>
+						    <a name="importarAncora"> </a>
 						  </div>
 						</div>
 					</div>
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
 							ng-click="importarLista();">
-							<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Importar Lista de Produtos .JSON
-						</button>
+							<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Importar Lista de Produtos 
+							</button>
 						<br /><br />
 						</div>
-
+						<div class="col-md-4 col-sm-12">										
+						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
+							ng-click="limparLista();">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Limpar Lista de Produtos (!)
+							</button>
+						<br /><br />
+						</div>
 				</fieldset>
 			</form>
 		</div>
@@ -197,7 +195,7 @@ $(document).ready(function(){
 		<footer>
 			<div class="col-lg-6">
 				<p>
-					Simple Market© <a href="https://github.com/rafaelrandow/simple-market">Rafael Randow</a> - 2017.
+					Simple Market© - <a href="https://github.com/rafaelrandow/simple-market">Rafael Randow</a> - 2017.
 					</p>
 			</div>
 		</footer>
