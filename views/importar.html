@@ -1,0 +1,27 @@
+<div class="container" ng-controller="ProdutosCtrl">
+<div class="col-lg-12 col-md-12 col-sm-12">
+	<div class="well bs-component row">
+		<form class="form-inline">
+			<fieldset>
+				<legend>Importar Lista</legend>
+				<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
+				<div class="col-md-6 col-sm-10" >
+					<div class="input-group col-md-12" style="margin-bottom:25px">
+					  <input type="file" class="form-control" id="arquivoInput"
+					  placeholder="Lista">
+					  <div class="input-group-btn">						
+					  </div>
+					</div>
+				</div>
+				   <div class="col-md-4 col-sm-12">										
+					<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
+						ng-click="importarLista();">
+						&plus; Importar Lista de Produtos JSON
+					</button>
+					<br /><br />
+					</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+</div>

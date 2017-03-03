@@ -12,7 +12,15 @@
 .btn-special{
 	padding-top:10px !important;
 	padding-bottom:10px !important;
+	margin-bottom:10px !important;
 }
 .list-group-item>b{
 	font-weight: normal !important;	
+}
+.input-file {
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    z-index: -1;
 }

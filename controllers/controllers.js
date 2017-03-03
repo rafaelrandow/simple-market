@@ -41,8 +41,8 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 			var value = localStorage[key];
 			if(value =="sim"){
 				listaComprados.push(key);
-				console.log(key + " => " + value);					
-				console.log(listaComprados);	
+				//console.log(key + " => " + value);					
+				//console.log(listaComprados);	
 			}else{				
 				listaNaoComprados.push(key);
 			}
@@ -79,14 +79,54 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 		$scope.atualiza();
 	}
 	
+	$scope.importarLista = function () {
+		var arquivo = $('#arquivoInput')[0].files[0];
+		console.log(arquivo);
+		 //data.files[0];		
+		
+        var reader = new FileReader();		
+		
+        var resp = reader.onload = function(){
+        var text = JSON.parse(reader.result);
+		
+		for (var i = 0; i < text.length; i++) {
+			//var id = data[i].id;
+			var nome = text[i].nome;
+			var comprado = text[i].comprado;
+			
+			if (comprado == undefined)
+					comprado = "nao";			
+				localStorage.setItem(nome, comprado);
+				}			
+		}
+		var txt = reader.readAsText(arquivo);
+		location.reload();
+	 }
+	
 	$scope.finalizar = function(){
 		var nome, status;
 		var textToWrite;
-		//var data = new Date().getTime();
+		var d = new Date();
+		var dia = d.getDate();
+		if (dia < 10)
+			dia = "0"+dia;
+		var mes = d.getMonth()+1;
+			if (mes < 10)
+			mes = "0"+mes;
+		var ano = d.getFullYear();
+		var hour = d.getHours();
+		var min = d.getMinutes();
+			if (min < 10)
+				min = "0"+min;
+		var sec = d.getSeconds();
+			if (sec < 10)
+				sec = "0"+sec;		
+		var stamp = ""+dia+"-"+mes+"-"+ano+"-"+hour+"-"+min+"-"+sec+"";
+
 		var prod = $('.list-group-item>b').length;
 		$scope.listaComprados = [];
 		$scope.listaNaoComprados = [prod];
-		alert("Exportando Lista com "+ (prod - 1) +" produtos");
+		alert("Finalizando Lista com "+ (prod - 1) +" produtos");
 
 		$('.list-group-item>b').each(function(){
 			//status = 'nao';
@@ -101,8 +141,8 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 		textToWrite = textToWrite.replace(",\n{\"nome\":\"status\",\"comprado\":\"nao\"},","\n]");		
 
 		var textFileAsBlob = new Blob([textToWrite], {type:'text/json'});
-		//var fileNameToSaveAs = "produtos"+ data +".json";
-		var fileNameToSaveAs = "produtos.json";
+		var fileNameToSaveAs = "lista-de-produtos-"+ stamp +".json";
+		//var fileNameToSaveAs = "produtos.json";
 
 		var downloadLink = document.createElement("a");
 		downloadLink.download = fileNameToSaveAs;
@@ -129,4 +169,6 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 	document.body.removeChild(event.target);
 	}
 
-} ]);
+}]);
+
+

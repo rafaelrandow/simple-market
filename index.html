@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" type="image/x-icon" href="Fasticon-Shop-Cart-Shop-cart.ico">
+<link rel="shortcut icon" type="image/x-icon" href="shopping-cart.ico">
 <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" href="css/bootstrap.spl.css" media="screen">
 <link rel="stylesheet" href="css/custom.css" media="screen">
@@ -21,10 +21,19 @@ $(document).ready(function(){
     e.preventDefault();
   });
    $('.navbar-toggle').on("click", function(e){
-    $(this).next('div').toggle();
+    $('#navbar-main').toggle();
     e.stopPropagation();
     e.preventDefault();
   });
+  
+   $('.select').on("click", function(e){
+    $('#listar').hide();
+	$('#importar').show();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  
+  
 });
 </script>
 
@@ -36,7 +45,7 @@ $(document).ready(function(){
 <script src="controllers/controllers.js"></script>
 <!-- -->
 <!-- Onde ficarao as nossas diretivas -->
-<!-- <script src="directives.js"></script> -->
+<!-- <script src="directives.js"></script>  -->
 <!-- -->
 <!-- Onde ficarao os nossos serviços -->
 <!--<script src="services/services.js"></script> -->
@@ -48,22 +57,27 @@ $(document).ready(function(){
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="#" class="navbar-brand">Simple Market</a>
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target="#navbar-main">
-				</button>
+				<a href="." class="navbar-brand">Simple Market</a>
+				<button class="navbar-toggle" type="button"  data-toggle="collapse"
+				type="button" class="navbar-toggle collapsed">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="actions">Menu <span
-							class="caret" /></span>
-					</a>
-						<ul class="dropdown-menu" aria-labelledby="actions">
-							<li><a href="#">Importar Lista</a></li>
-							<li class="divider" />
-							<li><a href="#">Exportar Lista</a></li>
-						</ul></li>
+					<!-- <li class="dropdown"> -->
+						<!-- <a class="dropdown-toggle"data-toggle="dropdown" href="#" id="actions">Menu  -->
+						<!-- <span class="caret" /></span> -->
+						<!-- </a> -->
+						<!-- <ul class="dropdown-menu" aria-labelledby="actions"> -->
+						<!-- <li><a href="#">Importar Lista</a></li> -->
+						<!-- <li class="divider" /> -->
+						<!-- <li><a href="#">Exportar Lista</a></li> -->
+						<!-- </ul> -->
+					<!-- </li> -->
+					<li><a href="#importarAncora" class="select">Importar Lista</a></li>
 				</ul>
 				
 			</div>
@@ -74,19 +88,19 @@ $(document).ready(function(){
 	</p>
 	<div class="container" ng-controller="ProdutosCtrl">
 		<div class="page-header row" id="banner">
-			<div class="col-md-12">
+			<div class="">
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-left">
-					<h2>Simple Market</h2>
-					<p class="lead">Lista de Compras</p>
+					<h3>Lista de Compras</h3>
+					 <p class="lead">Supermercado</p>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6 pull-right">
 					<button type="submit" class="btn btn-default pull-right" ng-click="finalizar();">
-						Finalizar<br />{{listaComprados.length}} itens<br />Faltam:<br />{{listaNaoComprados.length-1}} itens
+						Finalizar:<br />{{listaComprados.length}} itens<br />Faltam:<br />{{listaNaoComprados.length-1}} itens
 					</button>
 				</div>
 			</div>
 		</div>
-
+		<div ng-show="!importar" id="listar">
 		<form>
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="row">
@@ -96,11 +110,11 @@ $(document).ready(function(){
 							ng-hide="key =='status'" ng-click="selecionar(key);">
 							<b>{{key}}</b>
 							<button ng-show="value == 'nao'" type="submit"
-								class="pull-right btn btn-sm" ng-click="comprarProduto(key);">
+								class="pull-right btn btn-sm btn-special" ng-click="comprarProduto(key);">
 								Comprar</button>
 
 							<button ng-show="value == 'sim'" type="submit"
-								class="pull-right btn btn-sm btn-success"
+								class="pull-right btn btn-sm btn-success btn-special"
 								ng-click="devolverProduto(key);">Comprado</button>
 
 							<br /> <br />
@@ -128,23 +142,52 @@ $(document).ready(function(){
 						    	<button type="button"
 								class="btn"
 								ng-click="inputNome = ''">
-								&times;
+								<span class="glyphicon glyphicon-remove" aria-hidden="true">
 							</button>
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-12">											
-						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
+				       <div class="col-md-4 col-sm-12">										
+						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"							
 							ng-click="removerProduto(inputNome);">
 							&times; Remove item
+							
 						</button>
 						&nbsp;
 						<button type="submit" class="btn-special btn btn-md btn-info"
 							ng-click="adicionarProduto(inputNome);">
-							&plus; Adiciona item</button>
-
+							&plus; Adiciona item
+						</button>
 						<br /><br />
+						</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="!importar" id="importar" style="display:none" >
+		<div class="well bs-component row">
+			<form class="form-inline">
+				<fieldset>
+					<legend>Importar Lista</legend>
+					<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
+					<div class="col-md-6 col-sm-10" >
+						<div class="input-group col-md-12" style="margin-bottom:25px">
+						  <input type="file" class="form-control" id="arquivoInput"
+						  placeholder="Lista">
+						  <div class="input-group-btn">
+						    <a  name="importarAncora"> </a>
+						  </div>
+						</div>
 					</div>
+				       <div class="col-md-4 col-sm-12">										
+						<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
+							ng-click="importarLista();">
+							<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Importar Lista de Produtos .JSON
+						</button>
+						<br /><br />
+						</div>
 
 				</fieldset>
 			</form>
@@ -154,7 +197,7 @@ $(document).ready(function(){
 		<footer>
 			<div class="col-lg-6">
 				<p>
-					App SimpleMarket © <a href="https://github.com/rafaelrandow/simple-market" rel="nofollow">GitHub</a> - 2017.
+					App Simple Market© <a href="https://github.com/rafaelrandow/simple-market">Rafael Randow</a> - 2017.
 					</p>
 			</div>
 		</footer>
