@@ -25,9 +25,17 @@ $(document).ready(function(){
     e.stopPropagation();
     e.preventDefault();
   });  
-   $('.select').on("click", function(e){
+   $('.selImportar').on("click", function(e){
     $('#listar').hide();
+	$('#limpar').hide();
 	$('#importar').show();
+    e.stopPropagation();
+    e.preventDefault();
+  });  
+  $('.selLimpar').on("click", function(e){
+    $('#listar').hide();
+	$('#importar').hide();
+	$('#limpar').show();
     e.stopPropagation();
     e.preventDefault();
   });  
@@ -74,7 +82,8 @@ $(document).ready(function(){
 						<!-- <li><a href="#">Exportar Lista</a></li> -->
 						<!-- </ul> -->
 					<!-- </li> -->
-					<li><a href="#importarAncora" class="select">Importar Lista</a></li>
+					<li><a href="#importarAncora" class="selImportar">Importar Lista</a></li>
+					<li><a href="#limparAncora" class="selLimpar">Limpar Lista</a></li>
 				</ul>
 				
 			</div>
@@ -180,6 +189,18 @@ $(document).ready(function(){
 							</button>
 						<br /><br />
 						</div>
+						
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="!importar" id="limpar" style="display:none" >
+		<div class="well bs-component row">
+			<form class="form-inline">
+				<fieldset>
+					<legend>Limpar Lista</legend>
+					<label for="inputNome" class="col-md-8 control-label">Apagará todos os itens não importados!!! </label>					     
+						<a name="limparAncora"> </a>
 						<div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
 							ng-click="limparLista();">
@@ -191,6 +212,7 @@ $(document).ready(function(){
 			</form>
 		</div>
 	</div>
+	
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<footer>
 			<div class="col-lg-6">
