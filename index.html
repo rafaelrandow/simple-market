@@ -7,7 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" type="image/x-icon" href="shopping-cart.ico">
 <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-<link rel="stylesheet" href="css/bootstrap.spl.css" media="screen">
+<!-- <link rel="stylesheet" href="css/themes/cerulean/bootstrap.css" media="screen"> -->
+<!-- <link rel="stylesheet" href="css/themes/flatly/bootstrap.css" media="screen"> -->
+<!-- <link rel="stylesheet" href="css/themes/lumen/bootstrap.css" media="screen"> -->
+<!-- <link rel="stylesheet" href="css/themes/paper/bootstrap.css" media="screen"> -->
+<!-- <link rel="stylesheet" href="css/themes/simplex/bootstrap.css" media="screen"> -->
+<link rel="stylesheet" href="css/themes/spacelab/bootstrap.css" media="screen">
 <link rel="stylesheet" href="css/custom.css" media="screen">
 
 <script src="js/angular.min.js"></script>
@@ -153,14 +158,13 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"							
 							ng-click="removerProduto(inputNome);">
-							&times; Remove item							
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Apagar item					
 						</button>
-						&nbsp;
-						<button type="submit" class="btn-special btn btn-md btn-info"
+						<button type="submit" class="btn-special btn btn-md btn-info pull-right"
 							ng-click="adicionarProduto(inputNome);">
-							&plus; Adiciona item
+							<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Salvar item
 						</button>
-						<br /><br />
+						<br /><br /><br />
 						</div>
 				</fieldset>
 			</form>
@@ -185,7 +189,7 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
 							ng-click="importarLista();">
-							<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Importar Lista de Produtos 
+							<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Importar Lista de Produtos .JSON
 							</button>
 						<br /><br />
 						</div>
@@ -199,7 +203,7 @@ $(document).ready(function(){
 			<form class="form-inline">
 				<fieldset>
 					<legend>Limpar Lista</legend>
-					<label for="inputNome" class="col-md-8 control-label">Apagará todos os itens não importados!!! </label>					     
+					<label for="inputNome" class="col-md-8 control-label">Apagará todos os itens. <br/><br/> </label>					     
 						<a name="limparAncora"> </a>
 						<div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
