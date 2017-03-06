@@ -9,18 +9,16 @@
     background-color: #029acf;
     border-color: #029acf
 }
+.list-group-item>b{
+	font-weight: normal !important;	
+}
 .btn-special{
+	margin-top:-10px !important;
 	padding-top:10px !important;
 	padding-bottom:10px !important;
 	margin-bottom:10px !important;
 }
-.list-group-item>b{
-	font-weight: normal !important;	
-}
-.input-file {
-    opacity: 0;
-    -moz-opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    z-index: -1;
+.k{	
+    background-color: #096;
+	border-radius: 5px;
 }

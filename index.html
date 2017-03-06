@@ -118,14 +118,17 @@ $(document).ready(function(){
 						<div class="list-group-item" ng-repeat="(key, value) in lista"
 							ng-class="{'list-group-item-success': value == 'sim'}"
 							ng-hide="key =='status'" ng-click="selecionar(key);">
-							<b>{{key}}</b>
+							<b><br/>{{key}}</b>
 							<button ng-show="value == 'nao'" type="submit"
-								class="pull-right btn btn-sm btn-special" ng-click="comprarProduto(key);">
-								Comprar</button>
-
+								class="pull-right btn btn-sm btn-special" 
+								ng-click="comprarProduto(key);">
+								Comprar
+							</button>
 							<button ng-show="value == 'sim'" type="submit"
-								class="pull-right btn btn-sm btn-success btn-special"
-								ng-click="devolverProduto(key);">Comprado</button>
+								class="pull-right btn btn-sm btn-success btn-special k"
+								ng-click="devolverProduto(key);">
+								Comprado
+							</button>
 							<br /> <br />
 						</div>
 		</form>
