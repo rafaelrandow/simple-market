@@ -1,1 +1,24 @@
-[{"id":"1","nome":" Produto","comprado":"nao"}]
+[
+{"nome":"Azeite","comprado":"nao"},
+{"nome":"Banana","comprado":"nao"},
+{"nome":"Bisnaguinha","comprado":"nao"},
+{"nome":"Cápsulas dolce Gusto","comprado":"nao"},
+{"nome":"Iogurte","comprado":"nao"},
+{"nome":"Kiwi","comprado":"nao"},
+{"nome":"Lanche","comprado":"nao"},
+{"nome":"Leite Condensado","comprado":"nao"},
+{"nome":"Lenço","comprado":"nao"},
+{"nome":"Luva Louça","comprado":"nao"},
+{"nome":"Mandioquinha","comprado":"nao"},
+{"nome":"Miojo","comprado":"nao"},
+{"nome":"Mistura","comprado":"nao"},
+{"nome":"Nuttela","comprado":"nao"},
+{"nome":"Ovos","comprado":"nao"},
+{"nome":"Peito Peru","comprado":"nao"},
+{"nome":"Queijo Branco","comprado":"nao"},
+{"nome":"Sabonete íntimo","comprado":"nao"},
+{"nome":"Suco","comprado":"nao"},
+{"nome":"Suco lanche","comprado":"nao"},
+{"nome":"Uva Passa","comprado":"nao"},
+{"nome":"Yakult","comprado":"nao"}
+]
