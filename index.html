@@ -69,13 +69,13 @@ $(document).ready(function(){
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="." class="navbar-brand">Simple Market</a>
-				<button class="navbar-toggle" type="button"  data-toggle="collapse"
-				type="button" class="navbar-toggle">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
+				<a href="." class="navbar-brand pull-right">Simple Market</a>
+				<button class="navbar-toggle pull-left" type="button"  data-toggle="collapse" style="margin-left:5px; border:0">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
@@ -90,6 +90,7 @@ $(document).ready(function(){
 						<!-- </ul> -->
 					<!-- </li> -->
 					<li><a href="#importarAncora" class="selImportar">Importar Lista ( local )</a></li>
+					<a class="divider"></a>
 					<li><a href="#limparAncora" class="selLimpar">Limpar Lista ( local )</a></li>
 				</ul>
 				
@@ -99,13 +100,13 @@ $(document).ready(function(){
 	<p><br /></p>
 	<div class="container" ng-controller="ProdutosCtrl">
 		<div class="page-header row" id="banner">
-			<div class="">
+			<div style="margin-top:-20px;" >
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-left">
 					<h3>Lista  de <br/>	Compras</h3>
 					 <p class="lead">Supermercado</p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-right">
-					<button type="submit" class="btn btn-warning pull-right" ng-click="finalizar();">
+					<button type="submit" class="btn btn-warning pull-right" ng-click="finalizar();" style="margin-top:15px">
 						Finalizar:<br />{{listaComprados.length}} itens<br />Faltam:<br />{{listaNaoComprados.length-1}} itens
 					</button>
 				</div>
@@ -163,12 +164,12 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"							
 							ng-click="removerProduto(inputNome);">
-							APAGAR							
+							REMOVE							
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 						</button>
 						<button type="submit" class="btn-special btn btn-md btn-success pull-right"
 							ng-click="adicionarProduto(inputNome);">
-							SALVAR
+							SALVA
 							<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
 						</button>
 						<br /><br /><br />
@@ -196,7 +197,7 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
 							ng-click="importarLista();">
-							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Importar Lista
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Importar Lista de Produtos
 							</button>
 						<br /><br />
 						</div>
