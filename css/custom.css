@@ -10,10 +10,10 @@
     border-color: #029acf
 }
 .list-group-item{
-	font-weight: normal !important;	
-	
-	padding:20px !important;
-
+	padding-top:20px !important;
+	padding-bottom:20px !important;
+	padding-right:10px;
+	padding-left:10px;
 }
 .list-group-item >.btn{
 	margin-top:-10px !important;	
