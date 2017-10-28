@@ -9,15 +9,22 @@
     background-color: #029acf;
     border-color: #029acf
 }
-.list-group-item>b{
+.list-group-item{
 	font-weight: normal !important;	
+	
+	padding:20px !important;
+
 }
-.btn-special{
-	margin-top:-10px !important;
-	padding-top:10px !important;
-	padding-bottom:10px !important;
+.list-group-item >.btn{
+	margin-top:-10px !important;	
 	margin-bottom:10px !important;
 }
+
+.btn-special{
+	padding-top:10px !important;
+	padding-bottom:10px !important;
+}
+	
 .k{	
     background-color: #096;
 	border-radius: 5px;
@@ -25,6 +32,7 @@
 .lead{
 	margin:0;
 }
+
 body{
 	zoom:110%;
 }
