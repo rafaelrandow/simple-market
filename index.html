@@ -71,7 +71,7 @@ $(document).ready(function(){
 			<div class="navbar-header">
 				<a href="." class="navbar-brand">Simple Market</a>
 				<button class="navbar-toggle" type="button"  data-toggle="collapse"
-				type="button" class="navbar-toggle collapsed">
+				type="button" class="navbar-toggle">
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
@@ -90,7 +90,6 @@ $(document).ready(function(){
 						<!-- </ul> -->
 					<!-- </li> -->
 					<li><a href="#importarAncora" class="selImportar">Importar Lista ( local )</a></li>
-					<li class="divider"><a></a></li>
 					<li><a href="#limparAncora" class="selLimpar">Limpar Lista ( local )</a></li>
 				</ul>
 				
@@ -102,11 +101,11 @@ $(document).ready(function(){
 		<div class="page-header row" id="banner">
 			<div class="">
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-left">
-					<h3>Lista de Compras</h3>
+					<h3>Lista  de <br/>	Compras</h3>
 					 <p class="lead">Supermercado</p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-right">
-					<button type="submit" class="btn btn-default pull-right" ng-click="finalizar();">
+					<button type="submit" class="btn btn-warning pull-right" ng-click="finalizar();">
 						Finalizar:<br />{{listaComprados.length}} itens<br />Faltam:<br />{{listaNaoComprados.length-1}} itens
 					</button>
 				</div>
@@ -154,7 +153,7 @@ $(document).ready(function(){
 							 ng-model="inputNome" placeholder="Nome">
 						  <div class="input-group-btn">
 						    	<button type="button"
-								class="btn"
+								class="btn btn-default"
 								ng-click="inputNome = ''">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true">
 							</button>
@@ -197,7 +196,7 @@ $(document).ready(function(){
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-warning pull-left"
 							ng-click="importarLista();">
-							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Importar Lista de Produtos .json
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Importar Lista
 							</button>
 						<br /><br />
 						</div>
@@ -217,7 +216,7 @@ $(document).ready(function(){
 						<div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
 							ng-click="limparLista();">
-							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Limpar Lista de Produtos (!)
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Limpar Lista de Produtos
 							</button>
 						<br /><br />
 						</div>
