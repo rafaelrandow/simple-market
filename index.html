@@ -50,6 +50,8 @@
 				</button>
 				
 				<a href="." class="navbar-brand btnHome">Simple Market</a>
+				
+				
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
@@ -76,7 +78,7 @@
 		<div class="page-header row" id="banner">
 			<div style="margin-top:-20px;" >
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-left">
-					<h3>Lista  de <br/>	Compras</h3>
+					<h3>Lista de Compras</h3>
 					 <p class="lead">Supermercado</p>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 pull-right">
@@ -161,15 +163,19 @@
 				<fieldset>
 					<legend>Importar Lista</legend>
 					<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
-					<div class="col-md-6 col-sm-10" >
-						<div class="input-group col-md-12" style="margin-bottom:25px">
-						  <input type="file" class="form-control" id="arquivoInput"
-						  placeholder="Lista">
+					<div class="col-md-6 col-sm-6" >
+						<div class="input-group" style="margin-bottom:25px">
+						  <input type="file" class="form-control" id="arquivoInput">
 						  <div class="input-group-btn">
 						    <a name="importarAncora"> </a>
 						  </div>
 						</div>
 					</div>
+					
+					<div class="col-md-4 col-sm-12">										
+						<label class="btn btn-default btn-file">Escolha o Arquivo<input type="file"/></label>
+						<br /><br />
+						</div>
 				       <div class="col-md-4 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-info pull-left"
 							ng-click="importarLista();">
