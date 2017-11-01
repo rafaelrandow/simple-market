@@ -149,15 +149,18 @@
 					<legend>Importar Lista</legend>
 					<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
 							<div class="col-md-4 col-sm-12">				
-							<!-- <span class="btn btn-default btn-file">Selecione Lista de Produtos...					  -->
-								<input type="file" name="file" id="arquivoInput" class="form-control-file"/>						
-							<!-- </span>								  -->
-							<br /><br />
+							<label class="btn btn-default btn-file">
+									<input type="file" id="arquivoInput" style="display:none">
+									<span class="glyphicon glyphicon-folder-open" aria-hidden="true"> </span>
+							<span> 
+								&nbsp;
+								Selecione Lista de Produtos </span>						
+							</label>			
 							</div>
-						   <div class="col-md-4 col-sm-12">										
+						   <div class="col-md-6 col-sm-12">										
 							<button ng-click="importarLista();" class="btn-special btn btn-md btn-info pull-left">
-								<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
-
+								<span class="glyphicon glyphicon-save" aria-hidden="true"> </span>
+								&nbsp;
 								Importar Lista de Produtos
 								</button>
 							<br /><br />
@@ -172,10 +175,10 @@
 			<form class="form-inline">
 				<fieldset>
 					<legend>Limpar Lista</legend>
-					<label for="inputNome" class="col-md-8 control-label">Substituirá lista de produtos 
+					<label for="inputNome" class="col-md-6 control-label">Substituirá lista de produtos 
 						local pela lista de produtos do servidor. <br/><br/> </label>					     
 						<a name="limparAncora"> </a>
-						<div class="col-md-4 col-sm-12">										
+						<div class="col-md-6 col-sm-12">										
 						<button type="submit" class="btn-special btn btn-md btn-danger pull-left"
 							ng-click="limparLista();">
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Limpar Lista de Produtos
