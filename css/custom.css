@@ -44,6 +44,9 @@
     cursor: inherit;
     display: block;
 }
+.navbar-brand{
+	font-size: 24px;
+}
 
 body{
 	font-family: 'Roboto';
