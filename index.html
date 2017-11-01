@@ -48,23 +48,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				
-				<a href="." class="navbar-brand btnHome text-center">Simple Market</a>
-				
-				
+				<a href="." class="navbar-brand btnHome text-center">Simple Market</a>			
 			</div>
 			<div class="navbar-collapse collapse" id="navbar-main">
 				<ul class="nav navbar-nav">
-					<!-- <li class="dropdown"> -->
-						<!-- <a class="dropdown-toggle"data-toggle="dropdown" href="#" id="actions">Menu  -->
-						<!-- <span class="caret" /></span> -->
-						<!-- </a> -->
-						<!-- <ul class="dropdown-menu" aria-labelledby="actions"> -->
-						<!-- <li><a href="#">Importar Lista</a></li> -->
-						<!-- <li class="divider" /> -->
-						<!-- <li><a href="#">Exportar Lista</a></li> -->
-						<!-- </ul> -->
-					<!-- </li> -->
 					<li><a href="#importarAncora" class="btnImportar">Importar Lista ( local )</a></li>
 					<li class="divider"></li>
 					<li><a href="#limparAncora" class="btnLimpar">Limpar Lista ( local )</a></li>
@@ -89,7 +76,6 @@
 			</div>
 		</div>
 		<div ng-show="!importar" id="listar">
-		<form>
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div class="row">
 					<ul class="list-group table-of-contents">
@@ -115,7 +101,6 @@
 					</ul>
 				</div>
 			</div>
-		</form>
 	<!--	<ul class="pager">
 			<li><a href="<">Anterior</a></li>
 			<li><a href=">">Próxima</a></li>
@@ -141,12 +126,12 @@
 							</div>
 						</div>
 						   <div class="col-md-4 col-sm-12">											   
-							<button type="submit" class="btn-special btn btn-md btn-danger pull-left"							
+							<button class="btn-special btn btn-md btn-danger pull-left"							
 								ng-click="removerProduto(inputNome);">
 								Remove						
 								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							</button>
-							<button type="submit" class="btn-special btn btn-md btn-primary pull-right"
+							<button class="btn-special btn btn-md btn-primary pull-right"
 								ng-click="adicionarProduto(inputNome);">
 								Adiciona
 								<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
@@ -163,28 +148,20 @@
 				<fieldset>
 					<legend>Importar Lista</legend>
 					<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
-					<!-- <div class="col-md-6 col-sm-6" > -->
-						<!-- <div class="input-group" style="margin-bottom:25px"> -->
-						  <!-- <input type="file" class="form-control" id="arquivoInput"> -->
-						  <!-- <div class="input-group-btn"> -->
-						    <!-- <a name="importarAncora"> </a> -->
-						  <!-- </div> -->
-						<!-- </div> -->
-					<!-- </div> -->
-					
-					<div class="col-md-4 col-sm-12">										
-						<label class="btn btn-default btn-file">Escolha o Arquivo<input type="file"/></label>
-						<br /><br />
-						</div>
-				       <div class="col-md-4 col-sm-12">										
-						<button type="submit" class="btn-special btn btn-md btn-info pull-left"
-							ng-click="importarLista();">
-							<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+							<div class="col-md-4 col-sm-12">				
+							<!-- <span class="btn btn-default btn-file">Selecione Lista de Produtos...					  -->
+								<input type="file" name="file" id="arquivoInput" class="form-control-file"/>						
+							<!-- </span>								  -->
+							<br /><br />
+							</div>
+						   <div class="col-md-4 col-sm-12">										
+							<button ng-click="importarLista();" class="btn-special btn btn-md btn-info pull-left">
+								<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 
-							Importar Lista de Produtos
-							</button>
-						<br /><br />
-						</div>
+								Importar Lista de Produtos
+								</button>
+							<br /><br />
+							</div>
 						
 				</fieldset>
 			</form>
@@ -212,7 +189,7 @@
 	<div class="col-lg-12 col-md-12 col-sm-12">
 		<footer>
 			<div class="col-lg-12 text-center">
-				<p> <a href="https://github.com/rafaelrandow/simple-market">Simple Market</a> © - 2017. </p>
+				<p> 2016 - 2017 <a href="https://github.com/rafaelrandow/simple-market">Simple Market</a> ©  </p>
 			</div>
 		</footer>
 	</div>
