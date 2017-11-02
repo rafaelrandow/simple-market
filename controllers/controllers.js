@@ -130,10 +130,10 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 				sec = "0"+sec;		
 		var stamp = ""+dia+"-"+mes+"-"+ano+"-"+hour+"-"+min+"-"+sec+"";
 
-		var produtos = $('.list-group-item>span');
+		var produtos = $('.list-group-item>span').length;
 		$scope.listaComprados = [];
 		$scope.listaNaoComprados = [produtos];
-		alert("Lista com "+ (produtos.length - 1) +" produtos");
+		alert("Lista com "+ ($('.list-group-item>span' - 1) +" produtos");
 
 		produtos.each(function(){
 			//status = 'nao';
