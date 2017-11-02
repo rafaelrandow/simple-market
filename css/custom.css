@@ -46,6 +46,10 @@
 }
 .navbar-brand{
 	font-size: 20px;
+	/* margin-left: 9%; */
+}
+.navbar-nav>li{
+	padding:3px;
 }
 
 body{
