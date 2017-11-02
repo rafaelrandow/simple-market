@@ -130,12 +130,12 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 				sec = "0"+sec;		
 		var stamp = ""+dia+"-"+mes+"-"+ano+"-"+hour+"-"+min+"-"+sec+"";
 
-		var prod = $('.list-group-item>b').length;
+		var produtos = $('.list-group-item>span');
 		$scope.listaComprados = [];
-		$scope.listaNaoComprados = [prod];
-		alert("Lista com "+ (prod - 1) +" produtos");
+		$scope.listaNaoComprados = [produtos];
+		alert("Lista com "+ (produtos.length - 1) +" produtos");
 
-		$('.list-group-item>span').each(function(){
+		produtos.each(function(){
 			//status = 'nao';
 			nome = $(this).text();
 			var comprado = $(this).parent().hasClass('list-group-item-success');
