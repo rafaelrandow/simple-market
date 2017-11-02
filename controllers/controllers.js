@@ -135,7 +135,7 @@ angular.module('SimpleMarket', []).controller('ProdutosCtrl',
 		$scope.listaNaoComprados = [prod];
 		alert("Lista com "+ (prod - 1) +" produtos");
 
-		$('.list-group-item>b').each(function(){
+		$('.list-group-item>span').each(function(){
 			//status = 'nao';
 			nome = $(this).text();
 			var comprado = $(this).parent().hasClass('list-group-item-success');
