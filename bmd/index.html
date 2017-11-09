@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<title>Simple Market</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="shortcut icon" type="image/x-icon" href="shopping-cart.ico">
+<link rel="apple-touch-icon" href="shopping-cart.ico">
+<link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="css/bootstrap-material-design.min.css" media="screen">
+<link rel="stylesheet" href="css/bootstrap-material-design.min.css.map" media="screen">
+<link rel="stylesheet" href="css/ripples.css.map" media="screen">
+<link rel="stylesheet" href="css/ripples.min.css" media="screen">
+<link rel="stylesheet" href="css/ripples.min.css.map" media="screen">
+
+<link rel="stylesheet" href="css/custom.css" media="screen">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/material.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/material.min.js.map"></script>
+<script src="js/ripples.js"></script>
+<script src="js/ripples.min.js"></script>
+<script src="js/ripples.min.js.map"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/menu.js"></script>
+
+<!--<script src="js/angular-route.js"></script> -->
+<!-- Onde ficarao as nossas rotas -->
+<!--<script src="app.js"></script> -->
+<!-- -->
+<!-- Onde ficarao os nossos controllers -->
+<script src="controllers/controllers.js"></script>
+<!-- -->
+<!-- Onde ficarao as nossas diretivas -->
+<!-- <script src="directives.js"></script>  -->
+<!-- -->
+<!-- Onde ficarao os nossos serviços -->
+<!--<script src="services/services.js"></script> -->
+
+<script type="javascript">
+	$( document ).ready(function() {
+    $.material.init();
+});
+</script>
+
+
+
+
+</head>
+<body ng-app="SimpleMarket">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+		
+			<div class="navbar-header">
+				<button class="navbar-toggle pull-right" type="button"  data-toggle="collapse" style="margin-left:5px; border:0">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="." class="navbar-brand btnHome text-center">Simple Market <i class="material-icons">face</i></a>			
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-main">
+				<ul class="nav navbar-nav">
+					<li><a href="#importarAncora" class="btnImportar">Importar Lista ( local )</a></li>
+					<li class="divider"></li>
+					<li><a href="#limparAncora" class="btnLimpar">Limpar Lista ( local )</a></li>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+	<p><br /></p>
+	<div class="container" ng-controller="ProdutosCtrl">
+		<div class="page-header row" id="banner" style="margin-top:30px">
+			<div style="margin:15px;" >
+				<div class="pull-left">
+					<h3>Supermercado</h3>
+					 <p class="lead">Lista de Compras</p>
+				</div>
+				<div class="pull-right">
+					<button type="submit" class="btn btn-raised btn-warning pull-right" ng-click="finalizar();" >
+						Finalizar:<br />{{listaComprados.length}} itens<br />Faltam:<br />{{listaNaoComprados.length-1}} itens
+					</button>
+					
+				</div>
+			</div>
+		</div>
+		<div id="listar">
+		<div class="col-lg-12 col-md-12 col-sm-12">	
+			<div class="well bs-component row">
+				<form class="form-inline">
+					<!-- <fieldset> -->
+					<ul class="list-group table-of-contents">
+						<li class="list-group-item" ng-repeat="(key, value) in lista"
+							ng-class="{'list-group-item-success': value == 'sim'}"
+							ng-hide="key =='status'" ng-click="selecionar(key);">
+							<span>
+							{{key}}
+							</span>
+							<button ng-show="value == 'nao'" type="submit"
+								class="pull-right btn btn-default btn-raised btn-special" 
+								ng-click="comprarProduto(key);"><i class="material-icons">shopping_cart</i>
+							</button>
+							<button ng-show="value == 'sim'" type="submit"
+								class="pull-right btn btn btn-success btn-raised btn-special k"
+								ng-click="devolverProduto(key);">
+								OK
+							</button>
+							<br />
+						</li>
+					</ul>
+					<!-- </fieldset> -->
+				</form>
+			</div>
+		</div>
+	<!--	<ul class="pager">
+			<li><a href="<">Anterior</a></li>
+			<li><a href=">">Próxima</a></li>
+		</ul> -->	
+		<div class="col-lg-12 col-md-12 col-sm-12"></div>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="well bs-component row">
+				<form class="form-inline">
+					<fieldset>
+						<legend>Produto</legend>
+						<!-- <label for="inputNome" class="col-md-2 control-label">Nome</label> -->
+						<div class="text-center">
+							<div class="input-group col-xs-12 col-md-10" style="margin-bottom:60px">
+							  <input type="txt" class="form-control" name="inputNome"
+								 ng-model="inputNome" placeholder="Nome">
+							 <span class="material-icons searchclear" ng-click="inputNome = ''">clear</span>
+							</input>
+							</div>
+						</div>
+						   <div>											   
+							<button class="btn btn-raised btn-special btn-danger pull-left"							
+								ng-click="removerProduto(inputNome);">
+								REMOVE
+							</button>
+							<button class="btn btn-raised btn-special btn-info pull-right"
+								ng-click="adicionarProduto(inputNome);"> ADICIONA
+							</button>	
+							</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="!importar" id="importar" style="display:none" >
+		<div class="well bs-component row">
+			<form class="form-inline">
+				<fieldset>
+					<legend>Importar Lista</legend>
+					<label for="inputNome" class="col-md-2 control-label">Arquivo</label>
+							<div class="col-md-4 col-sm-12">				
+							<label class="btn btn-raised btn btn-raised-default btn btn-raised-file">
+									<input type="file" id="arquivoInput" style="display:none">
+									<span class="glyphicon glyphicon-folder-open" aria-hidden="true"> </span>
+							<span> 
+								&nbsp;
+								Selecione Lista de Produtos </span>						
+							</label>	
+							
+						<br /><br />		
+							</div>
+						   <div class="col-md-6 col-sm-12">										
+							<button ng-click="importarLista();" class="btn btn-raised-special btn btn-raised btn btn-raised-md btn btn-raised-info pull-left">
+								<span class="glyphicon glyphicon-save" aria-hidden="true"> </span>
+								&nbsp;
+								Importar Lista de Produtos
+								</button>
+							<br /><br />
+							</div>
+						
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12" ng-show="!importar" id="limpar" style="display:none" >
+		<div class="well bs-component row">
+			<form class="form-inline">
+				<fieldset>
+					<legend>Limpar Lista</legend>
+					<label for="inputNome" class="col-md-6 control-label">Substituirá lista de produtos 
+						local pela lista de produtos do servidor. <br/><br/> </label>					     
+						<a name="limparAncora"> </a>
+						<div class="col-md-6 col-sm-12">										
+						<button type="submit" class="btn btn-raised-special btn btn-raised btn btn-raised-md btn btn-raised-danger pull-left"
+							ng-click="limparLista();">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Limpar Lista de Produtos
+							</button>
+						</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>	
+	
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<footer>
+			<div class="col-lg-12 text-center">
+				<p> © 2017 <a href="https://github.com/rafaelrandow/simple-market">Simple Market</a></p>
+			</div>
+		</footer>
+	</div>
+	</div>
+
+	</body>
+</html>
